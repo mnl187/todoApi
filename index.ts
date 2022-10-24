@@ -12,6 +12,11 @@ class TodoApi {
         const resp = await fetch(`${this.url}/${id}`);
         return await resp.json();
     }
+
+    async list(): Promise<SingleTodo[]> {
+        const resp = await fetch(`${this.url}/${id}`);
+        return await resp.json();
+    }
 }
 
 (async () => {
