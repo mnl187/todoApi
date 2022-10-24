@@ -5,7 +5,11 @@
     "sourceMap": true,
     "target": "es6",
     "downlevelIteration": true,
-    "lib": ["es6", "dom.iterable"],
+    "lib": [
+      "es6",
+      "dom.iterable",
+      "dom"
+    ],
     "outDir": "dist"
   }
 }
