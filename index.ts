@@ -23,6 +23,10 @@ class TodoApi {
         const resp = await fetch(`${this.url}/`);
         return await resp.json();
     }
+
+    async create(task: SingleTodoToCreate): Promise<SingleTodo> {
+
+    }
 }
 
 (async () => {
