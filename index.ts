@@ -6,6 +6,6 @@ interface SingleTodo {
 }
 
 async function getTodo(id: number): Promise<SingleTodo> {
-    const resp = await fetch('https://jsonplaceholder.typicode.com/todos/id');
+    const resp = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
     return await resp.json();
 }
