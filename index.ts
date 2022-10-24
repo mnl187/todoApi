@@ -25,8 +25,17 @@ class TodoApi {
     }
 
     async create(task: SingleTodoToCreate): Promise<SingleTodo> {
-
+        const resp = await fetch(`${this.url}/`, {
+            method: 'POST',
+            body: JSON.stringify(task),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        });
+        return await resp.json();
     }
+
+
 }
 
 (async () => {
