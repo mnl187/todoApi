@@ -1,14 +1,12 @@
-interface SingleTodo {
-    userId: number;
-    id: number;
-    title: string;
-    completed: boolean;
-}
-
 interface SingleTodoToCreate {
     userId: number;
     title: string;
     completed: boolean;
+}
+
+interface SingleTodo extends SingleTodoToCreate {
+    id: number;
+
 }
 
 class TodoApi {
@@ -40,9 +38,11 @@ class TodoApi {
 
 (async () => {
     const todo = new TodoApi();
-    const all = await todo.list();
-    if (all.length > 0) {
-        console.log(all[0].title);
-    }
+    const newTodo = await todo.create({
+        title: 'Pogłaskac kota',
+        userId: 1,
+        completed: false,
+    });
+    console.log(newTodo.id)
 })();
 
