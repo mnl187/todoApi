@@ -5,6 +5,12 @@ interface SingleTodo {
     completed: boolean;
 }
 
+interface SingleTodoToCreate {
+    userId: number;
+    title: string;
+    completed: boolean;
+}
+
 class TodoApi {
     private readonly url = 'https://jsonplaceholder.typicode.com/todos';
 
@@ -22,5 +28,8 @@ class TodoApi {
 (async () => {
     const todo = new TodoApi();
     const all = await todo.list();
-})()
+    if (all.length > 0) {
+        console.log(all[0].title);
+    }
+})();
 
