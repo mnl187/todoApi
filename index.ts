@@ -1,12 +1,8 @@
-interface SingleTodoToCreate {
+interface SingleTodo {
+    id: number;
     userId: number;
     title: string;
     completed: boolean;
-}
-
-interface SingleTodo extends SingleTodoToCreate {
-    id: number;
-
 }
 
 class TodoApi {
@@ -22,7 +18,7 @@ class TodoApi {
         return await resp.json();
     }
 
-    async create(task: SingleTodoToCreate): Promise<SingleTodo> {
+    async create(task: Omit<SingleTodo, 'id'>): Promise<SingleTodo> {
         const resp = await fetch(`${this.url}/`, {
             method: 'POST',
             body: JSON.stringify(task),
