@@ -5,6 +5,9 @@ interface SingleTodo {
     completed: boolean;
 }
 
+
+type SingleTodoCreate = Omit<SingleTodo, 'id'>;
+
 class TodoApi {
     private readonly url = 'https://jsonplaceholder.typicode.com/todos';
 
@@ -18,7 +21,7 @@ class TodoApi {
         return await resp.json();
     }
 
-    async create(task: Omit<SingleTodo, 'id'>): Promise<SingleTodo> {
+    async create(task: SingleTodoCreate): Promise<SingleTodo> {
         const resp = await fetch(`${this.url}/`, {
             method: 'POST',
             body: JSON.stringify(task),
